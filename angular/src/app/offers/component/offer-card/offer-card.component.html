@@ -1,0 +1,8 @@
+<div class="card card-offer" (click)="select()">
+    <img src={{getPhoto()}} alt="Main photo">
+    <ng-content select="[offer-header]"></ng-content>
+    <div class="card-body">
+        <h4 class="card-title truncate" [class.selected]="isSelected">{{offer.title}}</h4>
+        <ng-content select="[offer-footer]"></ng-content>
+    </div>
+</div>

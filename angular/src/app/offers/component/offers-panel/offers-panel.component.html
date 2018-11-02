@@ -1,0 +1,18 @@
+<p class="indicator pull-right" *ngIf="isProcessing">
+    <span class="fa fa-cogs"></span>
+</p>
+
+<div class="text-center menu">
+    <button class="btn btn-sm btn-outline-primary" (click)="add()">ADD NEW </button>
+    <button class="btn btn-sm btn-outline-primary" (click)="remove()" [disabled]="editedOffer === null">REMOVE</button>
+</div>
+<app-offer-form *ngIf="editedOffer !== null" [offer]="editedOffer"
+                (cancel)="reset()"
+                (save)="save($event)">
+</app-offer-form>
+<div class="row justify-content-around offer">
+    <app-offer-card *ngFor="let offer of offers" [offer]="offer"
+                    [isSelected]="offer === selectedOffer"
+                    (offerSelected)="select(offer)">
+    </app-offer-card>
+</div>

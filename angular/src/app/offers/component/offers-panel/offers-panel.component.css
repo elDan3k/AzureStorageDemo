@@ -1,0 +1,25 @@
+.offers {
+  margin: 20px;
+}
+
+.menu {
+  padding: 20px;
+  border-bottom: 1px dashed lightgray;
+  margin-bottom: 20px;
+}
+
+.indicator {
+  height: 32px;
+  color: blue;
+  font-size: 26px;
+}
+
+.btn {
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}

@@ -1,0 +1,38 @@
+<form #offerForm="ngForm" class="form-offer" novalidate (ngSubmit)="saveOffer(offerForm)">
+
+    <div class="form-group">
+        <label for="title">Title:</label>
+        <input #title="ngModel" id="title" class="form-control" placeholder="Enter title" name="title"
+               [(ngModel)]="offer.title" required minlength="3" [disabled]="!isEnabled">
+        <label for="description">Description:</label>
+        <input #title="ngModel" id="description" class="form-control" placeholder="Enter description" name="description"
+               [(ngModel)]="offer.description" required minlength="3" [disabled]="!isEnabled">
+
+        <ul class="images-list">
+            <li *ngFor="let image of offer.images">
+                <img src="{{image.url}}" width="50px">
+            </li>
+        </ul>
+
+        <div class="upload-btn-wrapper">
+            <button class="btn">Upload image</button>
+            <input type="file" name="image" (change)="uploadImage($event.target.files[0])" />
+        </div>
+        <br/>
+
+        <ul class="attachments-list">
+            <li *ngFor="let attachment of offer.attachments">
+                <a href="{{attachment.url}}">{{attachment.id}}</a>
+            </li>
+        </ul>
+
+        <div class="upload-btn-wrapper">
+            <button class="btn">Upload attachment</button>
+            <input type="file" name="attachment" />
+        </div>
+    </div>
+    <div *ngIf="isEnabled">
+        <button type="button" class="btn btn-danger" (click)="cancel.emit()">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="offerForm.invalid">Save</button>
+    </div>
+</form>
